@@ -15,7 +15,7 @@ exports.init = function (grunt) {
   function spawn(options,next,done) {
     grunt.verbose.write('Spawning casperjs with options: ' + options + '\n');
     grunt.util.spawn({
-      cmd  : 'casperjs',
+      cmd  : (process.env['CASPERJS_BIN']) ? process.env['CASPERJS_BIN'] : 'casperjs',
       args : options
     }, function (errorObj, result, code) {
       if (code > 0) {
