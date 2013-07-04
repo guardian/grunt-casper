@@ -46,8 +46,8 @@ exports.init = function (grunt) {
     //add direct flag for printing logs to screen
     if (options['log-level'] && !options.direct) spawnOpts.push('--direct');
 
-    if(options['host'] || grunt.option('host')) {      
-      options['host'] = options['host'] || grunt.option('host');
+    if(grunt.option('host') || options['host']) {      
+      options['host'] = grunt.option('host') || options['host'];
     }
 
     grunt.util._.forEach(options,function(value, option) {
